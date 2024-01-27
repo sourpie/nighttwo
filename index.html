@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIGHT FOOD DELIVERY</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card {
+            width: 300px;
+            margin: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        #modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    z-index: 1; /* Ensure it is above other elements */
+}
+
+#modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    text-align: center;
+    position: relative; /* Add relative positioning */
+}
+
+#modal-content img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 576px) {
+    #modal-content {
+        width: 100%; /* Ensure modal content takes full width on small screens */
+    }
+}
+    </style>
+</head>
+<body>
+
+
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card" onclick="showImage('./public/subday.jpg')">
+          <img src="./public/subday.jpg" alt="Person 1" />
+          <div class="card-content">
+            <h3>Sunday Fast Food</h3>
+            <p>Mobile: 9314605900</p>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="card" onclick="showImage('./public/crazy.jpg')">
+          <img src="./public/crazy.jpg" alt="Person 2" />
+          <div class="card-content">
+            <h3>Crazy Tornado</h3>
+            <p>Mobile: 8949965569</p>
+          </div>
+        </div>
+        <div class="card" onclick="showImage('./public/pie.jpg')">
+          <img src="./public/pie.jpg" alt="Person 2" />
+          <div class="card-content">
+            <h3>Italian Pie</h3>
+            <p>Mobile: 9549045607</p>
+          </div>
+        </div>
+        <div class="card" onclick="showImage('./public/burger.jpg')">
+          <img src="./public/burger.jpg" alt="Person 2" />
+          <div class="card-content">
+            <h3>Burger 99 </h3>
+            <p>Mobile: 6377106377</p>
+          </div>
+        </div>
+  
+        <!-- Add more cards as needed -->
+      </div>
+  
+      <div id="modal-container" onclick="hideImage()">
+        <div id="modal-content">
+          <img id="modal-image" src="" alt="Modal Image" />
+        </div>
+      </div>
+
+
+    <script>
+        function showImage(imageSrc) {
+            var modalContainer = document.getElementById('modal-container');
+            var modalImage = document.getElementById('modal-image');
+  
+            modalImage.src = imageSrc;
+            modalContainer.style.display = 'flex';
+        }
+  
+        function hideImage() {
+            var modalContainer = document.getElementById('modal-container');
+            modalContainer.style.display = 'none';
+        }
+      </script>
+  
+
+</body>
+</html>
